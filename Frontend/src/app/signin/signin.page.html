@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Registrarse</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+    <ion-item >
+        <ion-label position="floating">Correo Electrónico</ion-label>
+        <ion-input type="text" [(ngModel)]="user.email" maxlength='15'></ion-input>
+      </ion-item>
+
+    <ion-item >
+        <ion-label position="floating">Usuario</ion-label>
+        <ion-input type="text" [(ngModel)]="user.user" maxlength='15'></ion-input>
+      </ion-item>
+  
+      <ion-item >
+        <ion-label position="floating" >Contraseña</ion-label>
+        <ion-input type="password" [(ngModel)]="user.pass" maxlength='30'></ion-input>
+      </ion-item> 
+
+      <ion-item >
+          <ion-label position="floating" >Repetir contraseña</ion-label>
+          <ion-input type="password" [(ngModel)]="user.pass2" maxlength='30'></ion-input>
+        </ion-item>
+
+        <ion-button expand="block" color="secondary" 
+        [disabled]="!user.user || !user.email || !user.pass || !user.pass2">
+          Registrar
+        </ion-button>
+
+</ion-content>

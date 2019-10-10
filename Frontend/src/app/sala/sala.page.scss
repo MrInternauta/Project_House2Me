@@ -1,0 +1,24 @@
+.carta .carta2{
+    border: 1px solid rgb(228, 228, 228);
+}
+
+ion-card.carta{
+    cursor: pointer;
+    outline: none;
+    color: black;
+    background-color: #FFF;
+    border: none;
+}
+
+ion-card.carta :hover {
+    background-color: #f7f7f7
+}
+
+ion-card.carta:active{
+    background-color: #FFF;
+    transform: translateY(4px);
+}
+
+.icono{
+    font-size: 45px;
+}

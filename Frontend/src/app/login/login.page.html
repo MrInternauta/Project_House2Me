@@ -1,0 +1,48 @@
+
+
+<ion-content text-center padding color="medium">
+  <br><br>
+    <div class="splash-logo"></div>
+    <!-- <h1 style="font-size:43px"> <b>House2me </b></h1> -->
+
+  <br>
+
+
+      <ion-item color="light">
+          <ion-icon name='mail' slot="start"></ion-icon>
+          <ion-label color="dark" position="stacked">Usuario</ion-label>
+          <ion-input type="text" [(ngModel)]="user" maxlength='15'></ion-input>
+        </ion-item>
+    
+        <ion-item color="light" >
+          <ion-icon name="key" slot="start"></ion-icon>
+          <ion-label color="dark" position="stacked">Contraseña</ion-label>
+          <ion-input type="password" [(ngModel)]="pass" maxlength='30'></ion-input>
+        </ion-item>
+
+        <br>
+
+        <ion-button expand="block" color="success" [routerLink]="[ '/home']" 
+                    [disabled]="!user || !pass" (click)="login()">
+          Iniciar Sesion
+        </ion-button>
+
+        <ion-button fill="clear" color='dark' [routerLink]="[ '/signin']">
+          Registrarse
+        </ion-button>
+
+        <br><br><br>
+
+        <ion-button expand="full" >
+          <ion-icon name="logo-facebook" slot="start"></ion-icon>
+          Entrar con Facebook
+        </ion-button>
+        <ion-button expand="full" color="danger">
+            <ion-icon name="logo-google" slot="start"></ion-icon>
+            Entrar con Gmail
+          </ion-button>
+  
+
+
+  
+</ion-content>
