@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Agregar Lampara
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-item>
+        <ion-label>Tipo de Elemento</ion-label>
+        <ion-select [(ngModel)]="elemento" placeholder="Selecciona una" cancel-text="Cancelar">
+          <ion-select-option value="sala">Sala</ion-select-option>
+          <ion-select-option value="dispositivo">Dispositivo</ion-select-option>
+        </ion-select>
+    </ion-item> 
+
+    
+  <ion-item>
+      <ion-label>Nombre: </ion-label>
+    <ion-input [(ngModel)]="nombre" type="text" maxlength='20'>
+    </ion-input>
+  </ion-item>
+
+  <ion-item *ngIf="elemento != 'sala' && elemento">
+      <ion-label>Tipo de dispositivo</ion-label>
+      <ion-select [(ngModel)]="tipo" placeholder="Selecciona una" cancel-text="Cancelar">
+        <ion-select-option value="luz">Luz</ion-select-option>
+        <ion-select-option value="sensor">Sensor</ion-select-option>
+      </ion-select>
+  </ion-item> 
+  <ion-item *ngIf="elemento != 'sala' && elemento">
+      <ion-label>Seleccionar sala</ion-label>
+      <ion-select [(ngModel)]="sala" placeholder="Selecciona Sala" cancel-text="Cancelar">
+        <ion-select-option  *ngFor="let item of salas" [value]="item._id">{{item.nombre}}</ion-select-option>
+      </ion-select>
+  </ion-item> 
+
+    <ion-button   [disabled]="!elemento || !nombre || (elemento == 'dispositivo' && !tipo  && !sala)" expand ='block' color ='secondary' (click)="agregar(elemento, nombre, tipo, sala)">
+      <ion-icon name='add' slot='start'></ion-icon>
+      Agregar
+    </ion-button>
+</ion-content>

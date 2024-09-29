@@ -1,0 +1,56 @@
+<ion-header color="dark">
+    <ion-toolbar mode="ios">
+      <ion-buttons slot="start" >
+          <ion-back-button defaultHref="/"></ion-back-button>
+        </ion-buttons>
+      <ion-title>
+        {{titulo}}
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+
+<ion-content color="dark">
+
+  <div *ngFor="let item of luces">
+    
+
+      <ion-card color="medium" class="carta" (click)="Cambiar(item)">
+          <ion-card-content style="text-align:center">
+              <h3 style="font-size: 20px"> {{item.nombre}} </h3>
+              <ion-icon name="sunny" style="color:aquamarine;font-size:45px"></ion-icon>
+              <p *ngIf="item.estado"> Encendido</p>
+              <p *ngIf="!item.estado"> Apagado</p>
+              <p *ngIf="item.pin"> Pin: {{item.pin}} </p>
+
+          </ion-card-content>
+
+      </ion-card>
+  </div>
+
+
+  <!-- Termome -->
+  <div *ngFor="let item of sensores">
+      <ion-card color="medium" class="carta">
+          <ion-card-content style="text-align:center">
+              <h3 style="font-size: 20px"> Termometro </h3>
+              <ion-icon name="thermometer" mode="ios" style="color:aquamarine;font-size:45px">
+              </ion-icon>
+              <p>{{item.nombre}}</p>
+              <h3 style="font-size: 20px"> {{item.metrica}} C° </h3>
+              <p *ngIf="item.pin"> Pin: {{item.pin}} </p>
+
+              <ion-item color="medium" lines="none">
+                  <ion-range disabled mode="md" [value]="item.metrica" [min]="item.metrica - 10" [max]="item.metrica + 10" step="1" pin="true" snaps="true" ticks="true" color="secondary">
+                      <ion-icon size="small" slot="start" name="snow"></ion-icon>
+                      <ion-icon slot="end" name="flame"></ion-icon>
+                  </ion-range>
+              </ion-item>
+    
+          </ion-card-content>
+    
+      </ion-card>
+  </div>
+
+
+</ion-content>

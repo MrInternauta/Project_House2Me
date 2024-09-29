@@ -1,0 +1,60 @@
+<ion-header color="dark">
+  <ion-toolbar mode="ios">
+    <ion-buttons slot="start" >
+      <ion-menu-button color='dark'></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      {{titulo}}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="medium">
+    <br>
+
+    <div class="croquis"></div>
+
+    <ion-card class="welcome-card" color="light" *ngFor="let s of salas" >
+     
+      <ion-card-content 
+      [routerLink]="[ '/sala/' + s._id]"
+      
+      >
+        <ion-item lines="none" color="light" detail="false">
+            <h3 style="font-size: 27px" [routerLink]="[ '/sala/' + s._id]" >&nbsp; {{s.nombre}} </h3>
+
+            <ion-button fill="clear" slot="end">
+                <ion-icon [ngStyle]="{'color': s.on === 1 ? 'mediumaquamarine' : 'gray'}"
+                style="color:mediumaquamarine; font-size: 30px" mode="md" name="home"></ion-icon>
+              </ion-button> 
+
+        </ion-item>
+         <!-- <ion-button [color]="s.status" fill ="clear"  *ngFor="let i of btns">
+
+          <ng-container *ngIf="i['name']== 'thermometer' " >
+            {{s.tmp}} {{i.text}}
+          </ng-container>
+      
+          <ion-icon slot="start" mode="ios" [name]="i.name"></ion-icon>
+        </ion-button> -->
+        <!-- <ion-toolbar>
+            <ion-buttons slot="secondary">
+              <ion-button>
+                  <ion-icon name="sunny" style="color:aquamarine;font-size:45px"></ion-icon>
+                </ion-button>
+              <ion-button>
+                  <ion-icon name="sunny" style="color:aquamarine;font-size:45px"></ion-icon>
+                </ion-button>
+            </ion-buttons>
+            <ion-buttons slot="primary">
+              <ion-button color="secondary">
+              <ion-icon name="thermometer" mode="ios" style="color:aquamarine;font-size:45px"></ion-icon>
+              </ion-button>
+            </ion-buttons>
+          </ion-toolbar> -->
+        
+      </ion-card-content>
+    </ion-card> 
+
+    
+</ion-content>

@@ -1,0 +1,16 @@
+
+.welcome-card {
+  border: 1px solid  rgb(173, 171, 171);
+  cursor: pointer;
+}
+.welcome-card:active{
+  background-color: #f4f5f8;
+  transform: translateY(2px);
+
+}
+
+.croquis{
+  margin: auto;
+  background-color: #fff;
+  border-radius: 5px;
+}
